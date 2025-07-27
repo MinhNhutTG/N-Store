@@ -48,12 +48,10 @@ body {
 
 /* PRODUCT INFO */
 .product-info {
-  background-color: #fff;
-  padding: 20px;
+  background-color: #fffffffe;
   border-radius: 8px;
   overflow: hidden;
   transition: height 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex: 1;
 }
 
