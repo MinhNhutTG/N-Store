@@ -192,7 +192,9 @@ body {
 .tab {
   background-color: #fff;
 }
-
+#footer {
+  padding: 20px 0 0 0;
+}
 /* RESPONSIVE */
 @media (max-width: 767px) {
   .thumbnail img {
