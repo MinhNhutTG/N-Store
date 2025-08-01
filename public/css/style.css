@@ -225,15 +225,17 @@ a {
     /* tránh bị co lại khi responsive */
 }
 
-
-@media (max-width: 768px) {
-    /* .product-card {
-        min-height: 100%;
-        min-width: 100px;
-        margin: 0px 5px;
-        width: 250px;
-        /* hoặc giá trị phù hợp hơn như 220px tùy bạn */
-        flex-shrink: 0;
-        /* tránh bị co lại khi responsive */
-    } */
+.popup-header{ 
+    display: none;
+    position: absolute;
+    top: 25px;
+    background-color: rgb(227, 227, 227);
+    width: 350px;
+    min-width: 200px;
+    right: 0;
+    z-index: 6;
 }
+.popup-header-show{
+    display: block !important;
+}
+
