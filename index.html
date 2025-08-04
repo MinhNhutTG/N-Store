@@ -17,10 +17,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
 
 </head>
 
 <body class="">
+
+    <!-- GFI Floating Contact Buttons -->
+    <div class="gfi">
+        <a href="tel:0123456789" class="gfi-btn call">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="https://m.me/yourpage" target="_blank" class="gfi-btn messenger">
+            <i class="fa-brands fa-facebook-messenger"></i>
+        </a>
+        <a href="https://zalo.me/yourzaloid" target="_blank" class="gfi-btn zalo">
+            <img src="https://inhoangha.com/uploads/tai-zalo-logo-vector.jpg" alt="Zalo" />
+        </a>
+        <a href="#" class="gfi-btn call2">
+          <i class="fa-solid fa-message text-white"></i>
+        </a>
+        <a href="#" class="gfi-btn top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
 
     <!-- Header  -->
     <div id="header">
@@ -279,10 +300,10 @@
                                                         </div>
                                                         <div class="d-flex mx-3 my-1"> <span
                                                                 class="text-black mx-2">Khách hàng mới? </span> <a
-                                                                href="" class="fw-bold">Tạo tài khoản </a></div>
+                                                                href="./pages/register.html" class="fw-bold">Tạo tài khoản </a></div>
                                                         <div class="d-flex mx-3 my-1"> <span
                                                                 class="text-black mx-2">Quên mật khẩu? </span> <a
-                                                                href="" class="fw-bold">Khôi phục mật khẩu </a></div>
+                                                                href="./pages/Repass.html" class="fw-bold">Khôi phục mật khẩu </a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -299,7 +320,8 @@
 
                                                 </div>
                                                 <div class=" box-text  position-relative"
-                                                    style="font-weight: 400; font-size: 13;"><p class="d-none  d-xl-inline">Giỏ hàng</p>
+                                                    style="font-weight: 400; font-size: 13;">
+                                                    <p class="d-none  d-xl-inline">Giỏ hàng</p>
                                                     <div class="popup-cart popup-header">
                                                         <div class="text-uppercase text-center my-2 fs-5 text-black">GIỎ
                                                             HÀNG
