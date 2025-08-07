@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trang Thanh Toán</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../public/css/cart.css">
+</head>
+
+<body>
+  <section id="cart-template" class="cart-page">
+    <div class="container">
+      <form action="/cart" method="post" enctype="multipart/form-data">
+        <div class="row d-flex">
+          <div class="col-12 col-lg-7 pd-0">
+            <div class="checkout-container">
+              <div class="payment-container">
+                <!-- <div class="icons-left">
+                  <div class="img-click"></div>
+                </div> -->
+                <h1 class="info-order info-title"> Thông tin đơn hàng</h1>
+                <div class="form-submit">
+                  <div>
+                    <div class="from-container">
+                      <div class="from-content">
+                        <input required type="text" name="name" id="customer_name" placeholder="Họ và tên" class="text">
+                        <p class="error" id="nameError" style="color: red;">Vui lòng nhập họ tên!</p>
+                      </div>
+                      <div class="from-content">
+                        <input required type="text" name="phone" id="customer_phone" placeholder="Số điện thoại"
+                          class="text">
+                        <p class="error" id="phoneError" style="color: red;">Vui lòng nhập số điện thoại!</p>
+                      </div>
+                    </div>
+                    <div class="from-content">
+                      <input required type="text" name="adress" id="customer_address" placeholder="Địa chỉ"
+                        class="text">
+                      <p class="error" id="adressError" style="color: red;">Vui lòng nhập địa chỉ!</p>
+                    </div>
+                    <div class="from-container">
+                      <div class="select-address-submit">
+                        <div class="address-select">
+                          <select name="change-tinh" class="change-tinh">
+                            <option value="all" selected>Tỉnh/thành phố</option>
+                            <option data-code="HC" value="50" data-tinh="Hồ Chí Minh" data-value="50">Hồ Chí Minh
+                            </option>slot
+                          </select>
+                          <p class="error" id="tinhError" style="color: red;">Vui lòng chọn tỉnh!</p>
+                        </div>
+                        <div class="address-select">
+                          <select name="select-quan" class="select-quan">
+                            <option value="all">Quận/huyện</option>
+                            <option data-code="HC466" value="466" data-quan="Quận 1">Quận 1</option>
+                          </select>
+                          <p class="error" id="quanError" style="color: red;">Vui lòng chọn quận huyện!</p>
+                        </div>
+                        <div class="address-select">
+                          <select name="select-phuong" class="select-phuong">
+                            <option value="all">Phường/xã</option>
+                            <option data-code="26734" value="26734" data-phuong="Phường Tân Định">Phường Tân Định
+                            </option>
+                          </select>
+                          <p class="error" id="phuongError" style="color: red;">Vui lòng chọn phường xã!</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="from-content">
+                      <input required type="text" value name="note" id="customer_note"
+                        placeholder="Ghi chú thêm(Ví dụ: giao hàng giờ hành chính)" class="text">
+                    </div>
+                  </div>
+                </div>
+                <div class="ship-container">
+                  <h1 class="info-title">Phương thức vận chuyển</h1>
+                  <div class="ship-cod ship-method active">
+                    <span class="ship-check">
+                      <input checked type="radio" name="ship" data-code="Freeship đơn hàng" data-price="20000"
+                        value="ship">
+                      <span class="ship-checkmark"></span>
+                    </span>
+                    <div class="ship-content">
+                      <p>Phí ship đơn hàng 20.000</p>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="payment-layout">
+                  <h1 class="info-title">Hình thức thanh toán</h1>
+                  <div class="payment-cod payment-method btn-chuyenkhoan active">
+                    <div class="chuyenkhoan-container">
+                      <div class="chuyenkhoan-title d-flex">
+                        <span class="payment-check">
+                          <input type="radio" name="payment-method" value="COD" checked="true">
+                          <span class="checkmark"></span>
+                        </span>
+                        <img width="35px"
+                          src="https://file.hstatic.net/1000253775/file/160s_-_b__icon_gi__h_ng_web_02_thanh_to_n_-_cod.png"
+                          alt="Payment By COD">
+                        <div class="code-content">
+                          <p>Thanh toán khi giao hàng(COD)</p>
+                        </div>
+                      </div>
+                      <div class="content-chuyenkhoan">
+                        <div>
+                          <p>- Khách hàng được kiểm tra trước khi nhận hàng</p>
+                          <p>- Freeship đơn hàng từ 399k</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="payment-atm payment-method">
+                    <span class="payment-check">
+                      <input type="radio" name="payment-method" value="VNPAY" >
+                      <span class="checkmark"></span>
+                    </span>
+                    <img width="45px"
+                      src="https://file.hstatic.net/1000253775/file/160s_-_b__icon_gi__h_ng_web_02_thanh_to_n_vnpay.png"
+                      alt="Payment By ATM">
+                    <div class="cod-content">
+                      <p>Ví điện tử VNPAY</p>
+                    </div>
+                  </div>
+                  <div class="payment-momo payment-method">
+                    <span class="payment-check">
+                      <input type="radio" name="payment-method" value="MOMO">
+                      <span class="checkmark"></span>
+                    </span>
+                    <img width="35px"
+                      src="https://file.hstatic.net/1000253775/file/160s_-_b__icon_gi__h_ng_web_02_thanh_to_n_-_momo.png"
+                      alt="Payment By Momo">
+                    <div class="cod-content">
+                      <p>Thanh toán MoMo</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-5 mg-bottom-50 pd-0 cart-left">
+            <div class="cart-title">
+              <div class="titlte_cart-content">
+                <img width="35px" height="35px"
+                  src="https://file.hstatic.net/1000253775/file/160s_-_b__icon_gi__h_ng_web_02_gi__h_ng.png">
+                <h1 class="info-title">Giỏ hàng</h1>
+              </div>
+              <div class="cart-count">
+                <span class="cart- counter">0</span>
+                <span class="cart-item-title">Sản phẩm</span>
+              </div>
+            </div>
+            <div class="flashsale_progressbar">
+              <div class="flashsale___percent" style="width: 0%;"></div>
+            </div>
+            <div class="cart-sale-one">
+              <div class="cart_title-new">
+                <h4>
+                  "Bạn được"
+                  <strong>Giản 10%</strong>
+                  " tối đa 10k, nua thêm 300,000đ để giảm giá 30k!"
+                </h4>
+              </div>
+
+            </div>
+            <div class="cart-loading" style="display: none;">
+              <div class="cart-container" id="cartContainer">
+                <div class="skeleton skeleton-item"></div>
+                <div class="skeleton skeleton-item"></div>
+                <div class="skeleton skeleton-item"></div>
+                <div class="skeleton skeleton-item"></div>
+              </div>
+              <div class="voucher-layout-loading">
+                <div class="voucher-container-one">
+                  <div class="img-click">
+                    <img width="40px"
+                      src="https://file.hstatic.net/1000360022/file/sparent-arrow-computer-icons-left-arrow-angle-text-rectangle-thumbnail.png"
+                      alt="sparent-arrow-computer-icons-left">
+                  </div>
+                  <h1 class="class-title-one">Ưu đãi dành cho bạn</h1>
+                </div>
+                <div class="voucher-container">
+                  <div class="row">
+                    <div
+                      class="skeleton skeleton-item voucher-price img-coupon col-sm-12 col-md-6 col-lg-6 col-xs-10 col-xl-3">
+                      <div class="voucher-content">
+                        <div class="voucher-title">
+                          <h4></h4>
+                          <p></p>
+                        </div>
+                        <div class="voucher-action">
+                          <p></p>
+                          <p></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <discout-box class="skeleton skeleton-item"></discout-box>
+                    <p class="coupon-error"></p>
+                  </div>
+                </div>
+                <div class="order-total_info">
+                  <div class="pricing-info_item">
+                    <p>Tạm tính:</p>
+                    <p class="skeleton-new skeleton-item"></p>
+                  </div>
+                  <div class="pricing-info_item">
+                    <p>
+                      <span class="price-ship">Phí giao hàng: </span>
+                    </p>
+                    <p class="skeleton-new skeleton-item"></p>
+                  </div>
+                  <div class="pricing-info_item">
+                    <p>Chương trình thân thiết:</p>
+                    <p class="skeleton-new skeleton-item"></p>
+                  </div>
+                  <div class="pricing-info_item">
+                    <strong>
+                      <p>Tổng</p>
+                    </strong>
+                    <p class="skeleton-new skeleton-item"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cart-done" style="display: block;">
+              <div id="cart-container-done">
+                <div class="item-wrap" id="cart-page-result">
+                  <div class="cart-empty">
+                    <img width="200px" height="200px"
+                      src="../public/asset/img/cart_empty_background_4729b0375a454caf9e7e020e0c6e986a.png"
+                      alt="Cart Emty">
+                    <h3> Hiện giỏ hàng của bạn không có sản phẩm nào! </h3>
+                    <p> Về trang cửa hàng để chọn mua sản phẩm bạn nhé!!</p>
+                    <a href="/" title="Mua sắm ngay" class="btn btn-main">Mua sắm ngay</a>
+                  </div>
+                </div>
+              </div>
+              <div class="voucher-layout">
+                <div class="voucher-container-one">
+                  <h1 class="voucher-title-one info-title">Ưu Đãi Dành Cho Bạn</h1>
+                </div>
+                <div class="voucher-container">
+                  <div class="row">
+                    <div class="voucher-price  img-coupon col-md-6 col-lg-6 col-xs-10 col-xl-3"
+                      data-code="AUG70">
+                      <span class="voucher-check">
+                        <input type="radio" name="voucher-40" data-cart="16690" value="899000" data-code="AUG70">
+                        <span class="voucher-checkmark"></span>
+                      </span>
+                      <div class="voucher-content">
+                        <div class="voucher-title">
+                          <h4>AUG70</h4>
+                          <p>Giảm 70K đơn từ 899K</p>
+                        </div>
+                        <div class="voucher-action">
+                          <p>HSD : 31/08/2025</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="voucher-price  img-coupon col-md-6 col-lg-6 col-xs-10 col-xl-3"
+                      data-code="AUG100">
+                      <span class="voucher-check">
+                        <input type="radio" name="voucher-40" data-cart="16690" value="899000" data-code="AUG100">
+                        <span class="voucher-checkmark"></span>
+                      </span>
+                      <div class="voucher-content">
+                        <div class="voucher-title">
+                          <h4>AUG100</h4>
+                          <p>Giảm 100K đơn từ 1199K</p>
+                        </div>
+                        <div class="voucher-action">
+                          <p>HSD : 31/08/2025</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="voucher-active"
+                      class="voucher-price voucher-dangmua img-coupon col-md-6 col-lg-6 col-xs-10 col-xl-3"
+                      data-value="10" data-code="AUG10" data-title="Giảm 10% tối đa 10K">
+                      <span class="voucher-check">
+                        <input type="radio" name="voucher-40" data-cart="16690" value="899000" data-code="AUG10">
+                        <span class="voucher-checkmark"></span>
+                      </span>
+                      <div class="voucher-content">
+                        <div class="voucher-title">
+                          <h4>AUG10</h4>
+                          <p>Giảm 10% tối đa 10k</p>
+                        </div>
+                        <div class="voucher-action">
+                          <p>HSD : 31/08/2025</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="voucher-price  img-coupon col-md-6 col-lg-6 col-xs-10 col-xl-3"
+                      data-code="AUG30">
+                      <span class="voucher-check">
+                        <input type="radio" name="voucher-40" data-cart="16690" value="899000" data-code="AUG30">
+                        <span class="voucher-checkmark"></span>
+                      </span>
+                      <div class="voucher-content">
+                        <div class="voucher-title">
+                          <h4>AUG30</h4>
+                          <p>Giảm 30K đơn từ 599K</p>
+                        </div>
+                        <div class="voucher-action">
+                          <p>HSD : 31/08/2025</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="discount-box">
+                    <input type="text" class="input-voucher" placeholder="Nhập mã giảm giá">
+                    <button class="btn-apdung">Áp dụng Voucher</button>
+                  </div>
+                </div>
+                <!-- <div class="next-button">
+                  <button class="btn-next">Tiếp tục thanh toán</button>
+                </div> -->
+                <div class="order-total__info">
+                  <div class="border-cart"></div>
+                  <div class="pricing-info__item">
+                    <p>Tạm tính:</p>
+                    <span id="total-price-default" class="total-price">0₫</span>
+                    <span class="total-price-checkout total-price-sale" style="display: none;">0₫</span>
+                  </div>
+                  <div class="pricing-info__item">
+                    <p><span class="price-ship">Phí vận chuyển:</span></p>
+                    <p><span class="total-price-ship">20,000₫</span></p>
+                  </div>
+                  <div class="pricing-info__item">
+                    <p><span class="price-ship">Voucher giảm giá:</span></p>
+                    <p><span class="price-discount" style="display: block;">0đ</span></p>
+                  </div>
+                  <div class="pricing-info__item">
+                    <p>Chương trình khách hàng thân thiết: </p>
+                    <p><span class="price-member">0₫</span></p>
+                  </div>
+                  <div class="border-cart"></div>
+                  <div class="pricing-info__item price-last">
+                    <strong>
+                      <p>Tổng:</p>
+                    </strong>
+                    <p class="total-price-last">
+                      <strong>
+                        <span id="total-price-new" class="total-price" data-price="0đ">0₫</span>
+                      </strong>
+                      <span id="total-price-discount" class="total-price" style="display: none;">0đ</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="layout-thanhtoan" style="display: block;">
+        <div class="layout-thanhtoan-container">
+          <div class="voucher-container__mb">
+            <div class="voucher-option">
+              <div class="voucher-img">
+                <img width="30px" height="30px;"
+                  src="https://file.hstatic.net/1000253775/file/160s_-_b__icon_gi__h_ng_web_02_voucher.png">
+                <span>Voucher</span>
+              </div>
+              <div class="voucher-choose">
+                <div class="voucher-new">
+                  <p class="payment-voucher__title">Chưa dùng Voucher </p>
+                  <img class="img-right" width="10px" height="10px"
+                    src="https://file.hstatic.net/1000360022/file/images__3_-removebg-preview.png">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="payment-voucher__info">
+            <div class="voucher_container-new">
+              <div class="content-col">
+                <p class="payment-name">
+                  <img width="65px"
+                    src="https://file.hstatic.net/1000253775/file/160s_-_b__icon_gi__h_ng_web_02_thanh_to_n_-_momo.png"
+                    alt="Hinh anh thanh toan">
+                </p>
+              </div>
+              <div class="content-col payment-voucher voucher-option">
+                <p class="payment-voucher__title">Chưa dùng voucher </p>
+                <img class="img-right" width="10px" height="10px"
+                  src="https://file.hstatic.net/1000360022/file/images__3_-removebg-preview.png">
+              </div>
+            </div>
+          </div>
+          <div class="price-content content-col">
+            <div class="order_total desktop-none">
+              <p><span id="total-price-new" class="total-price">0₫</span></p>
+              <p><span class="total-price-checkout total-price-sale" style="display: none;">0₫</span></p>
+            </div>
+            <div id="price-click" class="order_total desktop-block">
+              <p><span id="total-price-new" class="total-price">0₫</span></p>
+              <p>
+                <span class="total-price-checkout total-price-sale" style="display: none;">0₫</span>
+                <img width="10px" height="10px"
+                  src="https://file.hstatic.net/1000360022/file/9923748-removebg-preview.png" alt="Button Down">
+              </p>
+            </div>
+            <div class="btn-container btn-mb">
+              <button id="btn-dathang">Thanh toán</button>
+            </div>
+            <div class="btn-desktop">
+              <button id="btn-thanhtoan">Thanh toán</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../public/js/cart.js"></script>
+</html>
